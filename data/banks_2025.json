@@ -1,0 +1,92 @@
+[
+  {
+    "isim": "Ziraat Bankası",
+    "hesap_bonus": "350 TL (emeklilere özel)",
+    "konut_faiz": "%2.69",
+    "tasit_faiz": "%2.85",
+    "ihtiyac_faiz": "%3.05",
+    "kart_benefit": "Maaş emeklisi kartında yıllık aidat yok",
+    "notlar": "Kamu çalışanlarına özel ek indirimler olabilir"
+  },
+  {
+    "isim": "İş Bankası",
+    "hesap_bonus": "750 TL (kampanya dönemi)",
+    "konut_faiz": "%2.85",
+    "tasit_faiz": "%2.95",
+    "ihtiyac_faiz": "%3.15",
+    "kart_benefit": "İlk yıl aidatsız, %5 nakit puan",
+    "notlar": "Kampanya tarihleri sınırlıdır"
+  },
+  {
+    "isim": "Garanti BBVA",
+    "hesap_bonus": "500 TL",
+    "konut_faiz": "%2.79",
+    "tasit_faiz": "%2.99",
+    "ihtiyac_faiz": "%3.25",
+    "kart_benefit": "Yıllık %10 bonus",
+    "notlar": "Bazı ürünler şubelere özel olabilir"
+  },
+  {
+    "isim": "Yapı Kredi",
+    "hesap_bonus": "400 TL",
+    "konut_faiz": "%2.89",
+    "tasit_faiz": "%3.05",
+    "ihtiyac_faiz": "%3.30",
+    "kart_benefit": "World kart ilk yıl bedava",
+    "notlar": "Dijital başvurularda ekstra avantaj"
+  },
+  {
+    "isim": "Akbank",
+    "hesap_bonus": "600 TL",
+    "konut_faiz": "%2.75",
+    "tasit_faiz": "%2.92",
+    "ihtiyac_faiz": "%3.20",
+    "kart_benefit": "Axess'e özel %20 indirim",
+    "notlar": "Kampanya sürelerine dikkat edin"
+  },
+  {
+    "isim": "VakıfBank",
+    "hesap_bonus": "550 TL + 50 TL mobil bonus",
+    "konut_faiz": "%2.82",
+    "tasit_faiz": "%2.97",
+    "ihtiyac_faiz": "%3.35",
+    "kart_benefit": "Maximum World kampanyaları",
+    "notlar": "Belirli müşteri segmentlerine özel"
+  },
+  {
+    "isim": "Halkbank",
+    "hesap_bonus": "300 TL",
+    "konut_faiz": "%2.88",
+    "tasit_faiz": "%2.98",
+    "ihtiyac_faiz": "%3.22",
+    "kart_benefit": "Emekli ve KOBİ destek paketleri",
+    "notlar": "KOBİ'lere özel kredi paketleri"
+  },
+  {
+    "isim": "DenizBank",
+    "hesap_bonus": "200 TL",
+    "konut_faiz": "%2.90",
+    "tasit_faiz": "%3.00",
+    "ihtiyac_faiz": "%3.25",
+    "kart_benefit": "Deniz Bonus uygulamaları",
+    "notlar": "Dijital kanallarda avantajlar"
+  },
+  {
+    "isim": "QNB Finansbank",
+    "hesap_bonus": "450 TL",
+    "konut_faiz": "%2.87",
+    "tasit_faiz": "%2.96",
+    "ihtiyac_faiz": "%3.18",
+    "kart_benefit": "Bonus puan kampanyaları",
+    "notlar": "Bireysel bankacılık teklifleri değişken"
+  },
+  {
+    "isim": "TEB",
+    "hesap_bonus": "250 TL",
+    "konut_faiz": "%2.91",
+    "tasit_faiz": "%3.06",
+    "ihtiyac_faiz": "%3.28",
+    "kart_benefit": "Teb maximum kampanyaları",
+    "notlar": "Ödeme kolaylıkları sunuluyor"
+  }
+]

@@ -1,0 +1,11 @@
+flask
+langchain
+langchain-groq
+langchain-community
+chromadb
+sentence-transformers
+pypdf
+PyPDF2
+python-dotenv
+faiss-cpu
+reportlab
