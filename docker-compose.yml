@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  chatbot:
+    build: .
+    container_name: chatbot-app
+    restart: unless-stopped
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    labels:
+      - "traefik.enable=true"
+      # HTTP
+      - "traefik.http.routers.chatbot.rule=Host(`chatbot.devarvin.com`)"
+      - "traefik.http.routers.chatbot.entrypoints=web"
+      - "traefik.http.routers.chatbot.middlewares=redirect-to-https"
+      # HTTPS
+      - "traefik.http.routers.chatbot-secure.rule=Host(`chatbot.devarvin.com`)"
+      - "traefik.http.routers.chatbot-secure.entrypoints=websecure"
+      - "traefik.http.routers.chatbot-secure.tls=true"
+      - "traefik.http.routers.chatbot-secure.tls.certresolver=myresolver"
+      - "traefik.http.services.chatbot.loadbalancer.server.port=5001"
+      # Middleware: HTTP'den HTTPS'e yönlendir
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+

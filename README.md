@@ -2,6 +2,12 @@
 
 Türkiye'deki banka kampanyaları ve kredi faiz oranları hakkında bilgi veren RAG (Retrieval Augmented Generation) tabanlı akıllı sohbet robotu.
 
+## Canlı Demo
+
+**Uygulamaya buradan ulaşabilirsiniz:** [https://chatbot.devarvin.com](https://chatbot.devarvin.com)
+
+> Production ortamında Docker ve Traefik reverse proxy ile SSL sertifikalı olarak yayınlanmaktadır.
+
 ## Proje Hakkında
 
 Bu proje, Akbank Generative AI Bootcamp kapsamında geliştirilmiş bir chatbot uygulamasıdır. Kullanıcıların Türkiye'deki bankaların kampanyaları, kredi faiz oranları ve diğer finansal ürünler hakkında doğal dil ile soru sormasını ve anlamlı cevaplar almasını sağlar.
@@ -128,85 +134,45 @@ Chatbot, konuşma geçmişini bellekte tutar. Yeni bir konuşma başlatmak isted
 
 ## Örnek Kullanım Senaryoları
 
-### Senaryo 1: Temel Bilgi Sorgulama
+### Senaryo 1: En Düşük Konut Kredisi Faizi
 
 **Kullanıcı:** Hangi bankanın konut kredisi faiz oranı en düşük?
 
-**Chatbot:** Türkiye'deki banka kampanyaları arasında en düşük konut kredisi faiz oranına sahip olan bankalar:
-
-Ziraat Bankası:
-- Konut Kredisi Faizi: %2.69
-- Taşıt Kredisi Faizi: %2.85
-- İhtiyaç Kredisi Faizi: %3.05
-
-Akbank:
-- Konut Kredisi Faizi: %2.75
-- Taşıt Kredisi Faizi: %2.92
-- İhtiyaç Kredisi Faizi: %3.20
-
-En düşük konut kredisi faiz oranı Ziraat Bankası'nda %2.69'dur.
+**Chatbot:** Ziraat Bankası %2.69
 
 ---
 
-### Senaryo 2: Bağlamsal Konuşma
+### Senaryo 2: Kampanya Bilgisi
 
 **Kullanıcı:** İş Bankası'nın kampanyaları neler?
 
-**Chatbot:** İş Bankası'nın 2025 yılı kampanyaları şunlardır:
+**Chatbot:** İş Bankası'nın konut kredisi kampanyaları şu şekildedir:
 
-İş Bankası:
-- Hesap Açılış/Bonus: 750 TL (kampanya dönemi)
-- Konut Kredisi Faizi: %2.85
-- Taşıt Kredisi Faizi: %2.95
-- İhtiyaç Kredisi Faizi: %3.15
-- Kredi Kartı / Benefit: İlk yıl aidatsız, %5 nakit puan
-- Notlar: Kampanya tarihleri sınırlıdır
-
-**Kullanıcı:** Peki kredi kartı avantajları neler?
-
-**Chatbot:** İş Bankası'nın kredi kartı avantajları:
-- İlk yıl aidatsız kullanım
-- Her harcamada %5 nakit puan kazanımı
-- Kampanya tarihleri sınırlıdır, güncel detaylar için bankaya başvurmanız önerilir
+- Maaş Avantaj Paketi: 60.000-80.000 TL arası 1.000 TL, 80.000 TL üzeri 1.500 TL + Maximum World kredi kartı hediye. İlk 6 ay tüm bankacılık işlemleri ücretsiz.
 
 ---
 
-### Senaryo 3: Karşılaştırmalı Sorgulama
+### Senaryo 3: En Düşük Taşıt Kredisi
+
+**Kullanıcı:** Taşıt kredisi almak istiyorum, en uygun hangisi?
+
+**Chatbot:** Taşıt kredisi için en uygun faiz oranı %2.85 olan Ziraat Bankası'dır.
+
+---
+
+### Senaryo 4: Bağlamsal Soru (İkinci En Düşük)
+
+**Kullanıcı:** Ziraat'ten sonra hangi banka uygun?
+
+**Chatbot:** Ziraat Bankası'ndan sonra en uygun faiz oranı %2.75 olan Akbank'tır.
+
+---
+
+### Senaryo 5: Emekliler İçin Avantajlı Banka
 
 **Kullanıcı:** Emekliler için hangi banka daha avantajlı?
 
-**Chatbot:** Emekliler için özel kampanyalar sunan bankalar:
-
-Ziraat Bankası:
-- Hesap Açılış/Bonus: 350 TL (emeklilere özel)
-- Kredi Kartı: Maaş emeklisi kartında yıllık aidat yok
-- Notlar: Kamu çalışanlarına özel ek indirimler olabilir
-
-Halkbank:
-- Hesap Açılış/Bonus: 300 TL
-- Kredi Kartı / Benefit: Emekli ve KOBİ destek paketleri
-- Notlar: KOBİ'lere özel kredi paketleri
-
-Emekliler için en avantajlı seçenek Ziraat Bankası'dır.
-
----
-
-### Senaryo 4: Spesifik Ürün Sorgulama
-
-**Kullanıcı:** Taşıt kredisi almak istiyorum, en uygun faiz hangisinde?
-
-**Chatbot:** Taşıt kredisi faiz oranlarına göre en uygun bankalar:
-
-Ziraat Bankası:
-- Taşıt Kredisi Faizi: %2.85
-
-Akbank:
-- Taşıt Kredisi Faizi: %2.92
-
-İş Bankası:
-- Taşıt Kredisi Faizi: %2.95
-
-En düşük taşıt kredisi faiz oranı Ziraat Bankası'nda %2.85'tir.
+**Chatbot:** Emekliler için en avantajlı banka Ziraat Bankası'dır. Ziraat Bankası, emeklilere özel 350 TL hesap açılış bonusu ve maaş promosyonu sunmaktadır. Ayrıca, emekliler için ek 200 TL bonus verilmektedir.
 
 ## Proje Yapısı
 
@@ -243,15 +209,15 @@ generativeAIBootcampProject/
 ### RAG (Retrieval Augmented Generation) Mimarisi
 
 1. **Doküman Yükleme:** PDF dosyalarından banka kampanya bilgileri okunur
-2. **Chunking:** Metin 1000 karakterlik parçalara bölünür (200 karakter overlap)
-3. **Embedding:** Her parça HuggingFace modeli ile vektöre dönüştürülür
-4. **Vektör Veritabanı:** FAISS ile indekslenir
-5. **Sorgu İşleme:** Kullanıcı sorusu embedding'e çevrilir
-6. **Benzerlik Araması:** En alakalı 3 doküman parçası bulunur
+2. **Chunking:** Metin 2500 karakterlik parçalara bölünür (500 karakter overlap) - Daha büyük chunk'lar daha fazla banka bilgisi içerir
+3. **Embedding:** Her parça HuggingFace modeli (sentence-transformers/all-MiniLM-L6-v2) ile vektöre dönüştürülür
+4. **Vektör Veritabanı:** FAISS ile indekslenir ve hızlı benzerlik araması için optimize edilir
+5. **Sorgu İşleme:** Kullanıcı sorusu aynı embedding modeli ile vektöre çevrilir
+6. **Benzerlik Araması:** En alakalı 6 doküman parçası bulunur (k=6) - Tüm bankaları kapsayacak yeterli bilgi
 7. **Bağlam Oluşturma:** Bulunan parçalar + konuşma geçmişi birleştirilir
-8. **LLM Çağrısı:** GROQ API'ye context + soru gönderilir
-9. **Cevap Üretimi:** Llama 3.1 modeli doğal dil cevabı üretir
-10. **Bellek Güncelleme:** Konuşma geçmişi kaydedilir
+8. **LLM Çağrısı:** GROQ API'ye (Llama 3.1-8B-Instant) context + soru gönderilir
+9. **Cevap Üretimi:** Özel optimize edilmiş prompt ile doğal dil cevabı üretilir
+10. **Bellek Güncelleme:** ConversationBufferMemory ile konuşma geçmişi kaydedilir
 
 ### Konuşma Belleği
 
@@ -303,6 +269,7 @@ Eğer chatbot eski konuşmaları hatırlıyor ve yeni bir soru sorduğunuzda ön
 ### Port 5001 kullanımda
 
 Farklı bir port kullanmak için `src/python_chatbot/web_app.py` dosyasındaki port numarasını değiştirin.
+
 
 ## Katkıda Bulunma
 

@@ -346,6 +346,9 @@ def create_pdf(banks, output_path=OUTPUT_PDF):
             ("Taşıt Kredisi Faizi", banka.get('tasit_faiz', '—')),
             ("İhtiyaç Kredisi Faizi", banka.get('ihtiyac_faiz', '—')),
             ("Kredi Kartı / Benefit", banka.get('kart_benefit', '—')),
+            ("Maaş Kampanyası", banka.get('maas_kampanyasi', '—')),
+            ("Gelir Dilimi Avantajları (70K+ TL)", banka.get('gelir_dilimi_avantajlari', '—')),
+            ("Diğer Avantajlar", banka.get('diger_avantajlar', '—')),
             ("Notlar", banka.get('notlar', '—')),
         ]
 
