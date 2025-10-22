@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   chatbot:
@@ -30,5 +29,5 @@ services:
 
 networks:
   proxy:
-    external: true
+    name: proxy
 
